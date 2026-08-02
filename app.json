@@ -1,0 +1,1281 @@
+{
+  "id": "ai-grid-interconnection-queue-management",
+  "title": "GridQueue Interconnection Control",
+  "tagline": "FERC Order 2023 cluster readiness, study milestones, network upgrades, and commercial security",
+  "industry": "Utility-Scale Generator Interconnection",
+  "port": 4524,
+  "accent": "#16a34a",
+  "valueLabel": "Projects in queue",
+  "value": "24.6 GW",
+  "workflows": [
+    {
+      "id": "readiness",
+      "title": "Queue Entry Readiness",
+      "description": "Validate site control, deposits, technical data, commercial readiness, and application completeness.",
+      "fields": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "capacityMw",
+          "label": "Capacity MW",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "siteControl",
+          "label": "Site Control Status",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "readinessNotes",
+          "label": "Readiness Notes",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "project": "Project STD-2026-104",
+            "capacityMw": 125,
+            "siteControl": "Site Control Status STD-2026-104",
+            "readinessNotes": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "project": "Project RISK-2026-227",
+            "capacityMw": 975,
+            "siteControl": "Site Control Status RISK-2026-227",
+            "readinessNotes": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "project": "Project EXC-2026-319",
+            "capacityMw": 41,
+            "siteControl": "Site Control Status EXC-2026-319",
+            "readinessNotes": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "cluster",
+      "title": "Cluster Study Management",
+      "description": "Coordinate cluster assumptions, models, study scope, dependencies, milestones, and restudies.",
+      "fields": [
+        {
+          "key": "cluster",
+          "label": "Cluster",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "projectCount",
+          "label": "Project Count",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "studyDue",
+          "label": "Study Due",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "studyNotes",
+          "label": "Study Notes",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "cluster": "Cluster STD-2026-104",
+            "projectCount": 125,
+            "studyDue": "2026-09-08",
+            "studyNotes": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "cluster": "Cluster RISK-2026-227",
+            "projectCount": 975,
+            "studyDue": "2026-08-19",
+            "studyNotes": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "cluster": "Cluster EXC-2026-319",
+            "projectCount": 41,
+            "studyDue": "2026-08-10",
+            "studyNotes": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "network-upgrade",
+      "title": "Network Upgrade Allocation",
+      "description": "Track identified upgrades, cost allocation, affected projects, security, and changes.",
+      "fields": [
+        {
+          "key": "upgrade",
+          "label": "Network Upgrade",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "estimatedCost",
+          "label": "Estimated Cost",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "allocatedShare",
+          "label": "Allocated Share",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "allocationBasis",
+          "label": "Allocation Basis",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "upgrade": "Network Upgrade STD-2026-104",
+            "estimatedCost": 285000,
+            "allocatedShare": 285000,
+            "allocationBasis": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "upgrade": "Network Upgrade RISK-2026-227",
+            "estimatedCost": 875000,
+            "allocatedShare": 875000,
+            "allocationBasis": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "upgrade": "Network Upgrade EXC-2026-319",
+            "estimatedCost": 142500,
+            "allocatedShare": 142500,
+            "allocationBasis": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "affected-system",
+      "title": "Affected System Coordination",
+      "description": "Manage notices, models, study agreements, costs, deadlines, and disputed assumptions.",
+      "fields": [
+        {
+          "key": "affectedSystem",
+          "label": "Affected System",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "studyAgreement",
+          "label": "Study Agreement",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "responseDue",
+          "label": "Response Due",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "coordinationNotes",
+          "label": "Coordination Notes",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "affectedSystem": "Affected System STD-2026-104",
+            "studyAgreement": "Study Agreement STD-2026-104",
+            "responseDue": "2026-09-08",
+            "coordinationNotes": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "affectedSystem": "Affected System RISK-2026-227",
+            "studyAgreement": "Study Agreement RISK-2026-227",
+            "responseDue": "2026-08-19",
+            "coordinationNotes": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "affectedSystem": "Affected System EXC-2026-319",
+            "studyAgreement": "Study Agreement EXC-2026-319",
+            "responseDue": "2026-08-10",
+            "coordinationNotes": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "milestone",
+      "title": "Commercial Milestone Control",
+      "description": "Track deposits, site control, permits, offtake, equipment, financing, and withdrawal exposure.",
+      "fields": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "milestone",
+          "label": "Milestone",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "milestoneDue",
+          "label": "Milestone Due",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "evidence",
+          "label": "Milestone Evidence",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "project": "Project STD-2026-104",
+            "milestone": "Milestone STD-2026-104",
+            "milestoneDue": "2026-09-08",
+            "evidence": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "project": "Project RISK-2026-227",
+            "milestone": "Milestone RISK-2026-227",
+            "milestoneDue": "2026-08-19",
+            "evidence": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "project": "Project EXC-2026-319",
+            "milestone": "Milestone EXC-2026-319",
+            "milestoneDue": "2026-08-10",
+            "evidence": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "material-modification",
+      "title": "Material Modification Review",
+      "description": "Assess equipment, capacity, point-of-interconnection, storage, and schedule changes.",
+      "fields": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "changeType",
+          "label": "Change Type",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "capacityChangeMw",
+          "label": "Capacity Change MW",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "impactAnalysis",
+          "label": "Impact Analysis",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "project": "Project STD-2026-104",
+            "changeType": "Change Type STD-2026-104",
+            "capacityChangeMw": 125,
+            "impactAnalysis": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "project": "Project RISK-2026-227",
+            "changeType": "Change Type RISK-2026-227",
+            "capacityChangeMw": 975,
+            "impactAnalysis": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "project": "Project EXC-2026-319",
+            "changeType": "Change Type EXC-2026-319",
+            "capacityChangeMw": 41,
+            "impactAnalysis": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "gia",
+      "title": "Interconnection Agreement Control",
+      "description": "Manage GIA terms, milestones, construction responsibility, security, and execution readiness.",
+      "fields": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "agreementVersion",
+          "label": "Agreement Version",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "securityAmount",
+          "label": "Security Amount",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "openTerms",
+          "label": "Open Terms",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "project": "Project STD-2026-104",
+            "agreementVersion": "Agreement Version STD-2026-104",
+            "securityAmount": 285000,
+            "openTerms": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "project": "Project RISK-2026-227",
+            "agreementVersion": "Agreement Version RISK-2026-227",
+            "securityAmount": 875000,
+            "openTerms": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "project": "Project EXC-2026-319",
+            "agreementVersion": "Agreement Version EXC-2026-319",
+            "securityAmount": 142500,
+            "openTerms": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    },
+    {
+      "id": "portfolio",
+      "title": "Queue Portfolio Scenario",
+      "description": "Model withdrawals, restudies, cost shifts, COD movement, and portfolio capital exposure.",
+      "fields": [
+        {
+          "key": "portfolio",
+          "label": "Portfolio",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "withdrawalRate",
+          "label": "Withdrawal Rate",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "capitalAtRisk",
+          "label": "Capital at Risk",
+          "type": "currency",
+          "required": true
+        },
+        {
+          "key": "scenarioNotes",
+          "label": "Scenario Notes",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "states": [
+        "intake",
+        "analyzing",
+        "review",
+        "approved",
+        "closed"
+      ],
+      "examples": [
+        {
+          "id": "standard",
+          "label": "Fill Standard Case",
+          "values": {
+            "portfolio": "Portfolio STD-2026-104",
+            "withdrawalRate": 88,
+            "capitalAtRisk": 285000,
+            "scenarioNotes": "Complete: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "high-risk",
+          "label": "Fill High-Risk Case",
+          "values": {
+            "portfolio": "Portfolio RISK-2026-227",
+            "withdrawalRate": 42,
+            "capitalAtRisk": 875000,
+            "scenarioNotes": "Critical exception: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        },
+        {
+          "id": "exception",
+          "label": "Fill Exception Case",
+          "values": {
+            "portfolio": "Portfolio EXC-2026-319",
+            "withdrawalRate": 67,
+            "capitalAtRisk": 142500,
+            "scenarioNotes": "Reviewer follow-up: source evidence, financial impact, control context, and documented reviewer rationale are available for analysis."
+          }
+        }
+      ],
+      "aiActions": [
+        {
+          "id": "assess",
+          "label": "Assess Risk & Value"
+        },
+        {
+          "id": "evidence",
+          "label": "Build Evidence Checklist"
+        },
+        {
+          "id": "plan",
+          "label": "Recommend Action Plan"
+        }
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "readiness",
+      "title": "Queue Entry Readiness Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for queue entry readiness.",
+      "table": "op_readiness",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "capacityMw",
+          "label": "Capacity MW",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_capacityMw"
+        },
+        {
+          "key": "siteControl",
+          "label": "Site Control Status",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_siteControl"
+        },
+        {
+          "key": "readinessNotes",
+          "label": "Readiness Notes",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_readinessNotes"
+        }
+      ]
+    },
+    {
+      "id": "cluster",
+      "title": "Cluster Study Management Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for cluster study management.",
+      "table": "op_cluster",
+      "columns": [
+        {
+          "key": "cluster",
+          "label": "Cluster",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_cluster"
+        },
+        {
+          "key": "projectCount",
+          "label": "Project Count",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_projectCount"
+        },
+        {
+          "key": "studyDue",
+          "label": "Study Due",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_studyDue"
+        },
+        {
+          "key": "studyNotes",
+          "label": "Study Notes",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_studyNotes"
+        }
+      ]
+    },
+    {
+      "id": "network-upgrade",
+      "title": "Network Upgrade Allocation Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for network upgrade allocation.",
+      "table": "op_network_upgrade",
+      "columns": [
+        {
+          "key": "upgrade",
+          "label": "Network Upgrade",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_upgrade"
+        },
+        {
+          "key": "estimatedCost",
+          "label": "Estimated Cost",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_estimatedCost"
+        },
+        {
+          "key": "allocatedShare",
+          "label": "Allocated Share",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_allocatedShare"
+        },
+        {
+          "key": "allocationBasis",
+          "label": "Allocation Basis",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_allocationBasis"
+        }
+      ]
+    },
+    {
+      "id": "affected-system",
+      "title": "Affected System Coordination Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for affected system coordination.",
+      "table": "op_affected_system",
+      "columns": [
+        {
+          "key": "affectedSystem",
+          "label": "Affected System",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_affectedSystem"
+        },
+        {
+          "key": "studyAgreement",
+          "label": "Study Agreement",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_studyAgreement"
+        },
+        {
+          "key": "responseDue",
+          "label": "Response Due",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_responseDue"
+        },
+        {
+          "key": "coordinationNotes",
+          "label": "Coordination Notes",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_coordinationNotes"
+        }
+      ]
+    },
+    {
+      "id": "milestone",
+      "title": "Commercial Milestone Control Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for commercial milestone control.",
+      "table": "op_milestone",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "milestone",
+          "label": "Milestone",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_milestone"
+        },
+        {
+          "key": "milestoneDue",
+          "label": "Milestone Due",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_milestoneDue"
+        },
+        {
+          "key": "evidence",
+          "label": "Milestone Evidence",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_evidence"
+        }
+      ]
+    },
+    {
+      "id": "material-modification",
+      "title": "Material Modification Review Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for material modification review.",
+      "table": "op_material_modification",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "changeType",
+          "label": "Change Type",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_changeType"
+        },
+        {
+          "key": "capacityChangeMw",
+          "label": "Capacity Change MW",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_capacityChangeMw"
+        },
+        {
+          "key": "impactAnalysis",
+          "label": "Impact Analysis",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_impactAnalysis"
+        }
+      ]
+    },
+    {
+      "id": "gia",
+      "title": "Interconnection Agreement Control Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for interconnection agreement control.",
+      "table": "op_gia",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "agreementVersion",
+          "label": "Agreement Version",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_agreementVersion"
+        },
+        {
+          "key": "securityAmount",
+          "label": "Security Amount",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_securityAmount"
+        },
+        {
+          "key": "openTerms",
+          "label": "Open Terms",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_openTerms"
+        }
+      ]
+    },
+    {
+      "id": "portfolio",
+      "title": "Queue Portfolio Scenario Register",
+      "description": "Operational records, ownership, status, financial value, and evidence for queue portfolio scenario.",
+      "table": "op_portfolio",
+      "columns": [
+        {
+          "key": "portfolio",
+          "label": "Portfolio",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_portfolio"
+        },
+        {
+          "key": "withdrawalRate",
+          "label": "Withdrawal Rate",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_withdrawalRate"
+        },
+        {
+          "key": "capitalAtRisk",
+          "label": "Capital at Risk",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_capitalAtRisk"
+        },
+        {
+          "key": "scenarioNotes",
+          "label": "Scenario Notes",
+          "type": "textarea",
+          "required": false,
+          "dbKey": "data_scenarioNotes"
+        }
+      ]
+    },
+    {
+      "id": "project-register",
+      "title": "Interconnection Project Register",
+      "description": "Projects, technology, capacity, POI, developer, COD, and queue status.",
+      "table": "op_project_register",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "technology",
+          "label": "Technology",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_technology"
+        },
+        {
+          "key": "capacityMw",
+          "label": "Capacity MW",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_capacityMw"
+        },
+        {
+          "key": "targetCod",
+          "label": "Target COD",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_targetCod"
+        }
+      ]
+    },
+    {
+      "id": "cluster-register",
+      "title": "Cluster & Study Register",
+      "description": "Clusters, windows, projects, study phase, deadlines, and engineers.",
+      "table": "op_cluster_register",
+      "columns": [
+        {
+          "key": "cluster",
+          "label": "Cluster",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_cluster"
+        },
+        {
+          "key": "region",
+          "label": "Region",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_region"
+        },
+        {
+          "key": "projectCount",
+          "label": "Project Count",
+          "type": "number",
+          "required": true,
+          "dbKey": "data_projectCount"
+        },
+        {
+          "key": "studyDue",
+          "label": "Study Due",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_studyDue"
+        }
+      ]
+    },
+    {
+      "id": "upgrade-register",
+      "title": "Network Upgrade Register",
+      "description": "Upgrades, facilities, costs, allocation, schedule, and construction ownership.",
+      "table": "op_upgrade_register",
+      "columns": [
+        {
+          "key": "upgrade",
+          "label": "Upgrade",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_upgrade"
+        },
+        {
+          "key": "facility",
+          "label": "Facility",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_facility"
+        },
+        {
+          "key": "estimatedCost",
+          "label": "Estimated Cost",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_estimatedCost"
+        },
+        {
+          "key": "inServiceDate",
+          "label": "In-Service Date",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_inServiceDate"
+        }
+      ]
+    },
+    {
+      "id": "security-register",
+      "title": "Deposit & Security Ledger",
+      "description": "Application deposits, study funds, commercial readiness deposits, and GIA security.",
+      "table": "op_security_register",
+      "columns": [
+        {
+          "key": "project",
+          "label": "Project",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_project"
+        },
+        {
+          "key": "securityType",
+          "label": "Security Type",
+          "type": "text",
+          "required": true,
+          "dbKey": "data_securityType"
+        },
+        {
+          "key": "amount",
+          "label": "Amount",
+          "type": "currency",
+          "required": true,
+          "dbKey": "data_amount"
+        },
+        {
+          "key": "dueDate",
+          "label": "Due Date",
+          "type": "date",
+          "required": true,
+          "dbKey": "data_dueDate"
+        }
+      ]
+    }
+  ],
+  "domainProduct": {
+    "home": "Interconnection Portfolio Control",
+    "context": "A project-developer system for Order 2023 readiness, clusters, affected systems, network upgrades, commercial milestones, and GIAs.",
+    "features": [
+      {
+        "id": "queue-readiness",
+        "title": "Queue Entry & Readiness",
+        "description": "Control application completeness, site control, deposits, technical data, and commercial readiness.",
+        "view": "evidence",
+        "modules": [
+          "readiness",
+          "project-register"
+        ],
+        "actions": [
+          {
+            "id": "submit-queue",
+            "label": "Authorize Queue Submission",
+            "nextStatus": "Approved",
+            "auditDetail": "Authorized complete interconnection request."
+          },
+          {
+            "id": "hold-project",
+            "label": "Hold Unready Project",
+            "nextStatus": "Investigating",
+            "auditDetail": "Held project for readiness remediation."
+          }
+        ]
+      },
+      {
+        "id": "cluster-study",
+        "title": "Cluster Study Command",
+        "description": "Coordinate project models, assumptions, milestones, restudies, withdrawals, and study deliverables.",
+        "view": "deadline",
+        "modules": [
+          "cluster",
+          "cluster-register"
+        ],
+        "actions": [
+          {
+            "id": "accept-study",
+            "label": "Accept Cluster Study",
+            "nextStatus": "Approved",
+            "auditDetail": "Accepted cluster study deliverable."
+          },
+          {
+            "id": "request-restudy",
+            "label": "Request Cluster Restudy",
+            "nextStatus": "Review",
+            "auditDetail": "Requested restudy after material portfolio change."
+          }
+        ]
+      },
+      {
+        "id": "upgrade-allocation",
+        "title": "Network Upgrade Economics",
+        "description": "Track facilities, costs, allocation, cost shifts, securities, and construction responsibility.",
+        "view": "reconciliation",
+        "modules": [
+          "network-upgrade",
+          "upgrade-register"
+        ],
+        "actions": [
+          {
+            "id": "approve-allocation",
+            "label": "Approve Upgrade Allocation",
+            "nextStatus": "Approved",
+            "auditDetail": "Approved network-upgrade cost allocation."
+          },
+          {
+            "id": "dispute-allocation",
+            "label": "Dispute Cost Allocation",
+            "nextStatus": "Investigating",
+            "auditDetail": "Opened cost-allocation dispute."
+          }
+        ]
+      },
+      {
+        "id": "affected-systems",
+        "title": "Affected System Coordination",
+        "description": "Control notices, models, study agreements, assumptions, costs, and inter-utility deadlines.",
+        "view": "deadline",
+        "modules": [
+          "affected-system",
+          "security-register"
+        ],
+        "actions": [
+          {
+            "id": "execute-study",
+            "label": "Execute Study Agreement",
+            "nextStatus": "Review",
+            "auditDetail": "Executed affected-system study agreement."
+          },
+          {
+            "id": "accept-affected-result",
+            "label": "Accept Affected-System Result",
+            "nextStatus": "Approved",
+            "auditDetail": "Accepted affected-system study result."
+          }
+        ]
+      },
+      {
+        "id": "gia-readiness",
+        "title": "GIA & Commercial Milestones",
+        "description": "Manage deposits, permits, equipment, financing, construction obligations, security, and execution.",
+        "view": "board",
+        "modules": [
+          "gia",
+          "milestone"
+        ],
+        "actions": [
+          {
+            "id": "execute-gia",
+            "label": "Authorize GIA Execution",
+            "nextStatus": "Approved",
+            "auditDetail": "Authorized interconnection agreement execution."
+          },
+          {
+            "id": "escalate-milestone",
+            "label": "Escalate Commercial Milestone",
+            "nextStatus": "Investigating",
+            "auditDetail": "Escalated overdue commercial milestone."
+          }
+        ]
+      }
+    ]
+  },
+  "integrations": [
+    {
+      "id": "integration-1",
+      "name": "RTO queue portal",
+      "category": "Domain data source",
+      "mode": "Read-only demo connector"
+    },
+    {
+      "id": "integration-2",
+      "name": "Power-flow models",
+      "category": "Domain data source",
+      "mode": "Read-only demo connector"
+    },
+    {
+      "id": "integration-3",
+      "name": "Project ERP",
+      "category": "Domain data source",
+      "mode": "Read-only demo connector"
+    },
+    {
+      "id": "integration-4",
+      "name": "GIS site control",
+      "category": "Domain data source",
+      "mode": "Read-only demo connector"
+    },
+    {
+      "id": "integration-5",
+      "name": "Document repository",
+      "category": "Domain data source",
+      "mode": "Read-only demo connector"
+    }
+  ],
+  "featureCount": 40,
+  "seededRecords": 300,
+  "demoUsers": 3,
+  "apiPort": 5524,
+  "dbName": "profit_ai_grid_interconnection_queue_management"
+}

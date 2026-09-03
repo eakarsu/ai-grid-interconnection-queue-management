@@ -1,0 +1,214 @@
+// Generated schema — modeled after beautyhqio conventions.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         Role     @default(ANALYST)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  ANALYST
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actorName String?
+  action    String
+  entity    String
+  entityId  String?
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+model ClusterWindow {
+  id        String   @id @default(cuid())
+  name String
+  iso String
+  season String
+  status String
+  openDate DateTime?
+  closeDate DateTime?
+  applications Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  projects Project[]
+  siteControls SiteControl[]
+  depositRecords DepositRecord[]
+  clusterStudys ClusterStudy[]
+  networkUpgrades NetworkUpgrade[]
+  costAllocations CostAllocation[]
+  milestones Milestone[]
+  modificationRequests ModificationRequest[]
+  giaControls GiaControl[]
+  withdrawalScenarios WithdrawalScenario[]
+  affectedSystemStudys AffectedSystemStudy[]
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  name String
+  developer String
+  technology String
+  capacityMw Float
+  queuePosition String
+  status String
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteControl {
+  id        String   @id @default(cuid())
+  projectRef String
+  parcel String
+  controlType String
+  evidenceDate DateTime?
+  status String
+  acreage Float
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DepositRecord {
+  id        String   @id @default(cuid())
+  projectRef String
+  phase String
+  amount Float
+  status String
+  dueDate DateTime?
+  paidAt DateTime?
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ClusterStudy {
+  id        String   @id @default(cuid())
+  name String
+  phase String
+  lead String
+  status String
+  kickOff DateTime?
+  projectCount Int
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model NetworkUpgrade {
+  id        String   @id @default(cuid())
+  name String
+  kind String
+  estimatedCost Float
+  voltage String
+  status String
+  inServiceDate DateTime?
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CostAllocation {
+  id        String   @id @default(cuid())
+  projectRef String
+  upgradeRef String
+  allocatedCost Float
+  sharePct Float
+  method String
+  status String
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Milestone {
+  id        String   @id @default(cuid())
+  projectRef String
+  kind String
+  dueDate DateTime?
+  metDate DateTime?
+  status String
+  consequence String?
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ModificationRequest {
+  id        String   @id @default(cuid())
+  projectRef String
+  kind String
+  description String
+  materiality String
+  status String
+  submittedAt DateTime?
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GiaControl {
+  id        String   @id @default(cuid())
+  projectRef String
+  draft String
+  status String
+  targetExecution DateTime?
+  tenderedBy String?
+  version String
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WithdrawalScenario {
+  id        String   @id @default(cuid())
+  projectRef String
+  scenario String
+  penaltyEstimate Float
+  capitalAtRisk Float
+  decision String
+  modeledAt DateTime?
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AffectedSystemStudy {
+  id        String   @id @default(cuid())
+  projectRef String
+  neighborSystem String
+  finding String
+  status String
+  requestedAt DateTime?
+  studyCost Float
+  windowId String?
+  window ClusterWindow? @relation(fields: [windowId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

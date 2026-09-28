@@ -124,21 +124,21 @@ export const entities: Record<string, EntityConfig> = {
 export const workflows: WorkflowConfig[] = [
   {
     slug: "readiness-check",
-    title: "Queue Readiness Reviewer",
+    title: "Draft: Queue Readiness Reviewer",
     description: "Assess FERC Order 2023 application readiness.",
     prompt: "You are an interconnection policy analyst. Under FERC Order 2023, review the application readiness: site control, deposits, executing milestones. List gaps and cure deadlines.",
     fields: ["project", "siteControlType", "depositsPaid", "clusterPhase"],
   },
   {
     slug: "cost-allocate",
-    title: "Upgrade Cost Allocator",
+    title: "Draft: Upgrade Cost Allocator",
     description: "Allocation of network upgrade costs across cluster.",
-    prompt: "You are a transmission-cost analyst. Allocate network upgrade costs across cluster projects proportional to allocated capacity and explain the method's compliance.",
+    prompt: "Explain the supplied allocation method and computed scenario. Do not override the chosen method or claim tariff/FERC compliance without a versioned applicable rule and study evidence.",
     fields: ["upgradeCost", "projectCapacities", "method", "iso"],
   },
   {
     slug: "withdrawal-model",
-    title: "Withdrawal Risk Modeler",
+    title: "Draft: Withdrawal Risk Modeler",
     description: "Model withdrawal penalties and capital at risk.",
     prompt: "You are an energy markets analyst. Model this withdrawal scenario: penalties, lost deposits, and knock-on effects for remaining cluster members.",
     fields: ["project", "stageOfStudy", "depositsAtRisk", "clusterSize"],

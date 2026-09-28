@@ -1,0 +1,98 @@
+{
+  "readiness-check": [
+    {
+      "id": "example-1",
+      "label": "Early cluster",
+      "values": {
+        "project": "Example Solar 100 MW",
+        "siteControlType": "Executed lease; evidence must be reviewed",
+        "depositsPaid": "250000 USD, receipt pending review",
+        "clusterPhase": "Initial cluster review"
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Expiring option",
+      "values": {
+        "project": "Example Storage 80 MW",
+        "siteControlType": "Site option expires 2026-10-01",
+        "depositsPaid": "100000 USD, applicant supplied amount",
+        "clusterPhase": "Restudy"
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Deposit gap",
+      "values": {
+        "project": "Example Wind 150 MW",
+        "siteControlType": "Purchase agreement with unresolved condition",
+        "depositsPaid": "50000 USD paid; required total not independently established",
+        "clusterPhase": "Facilities study"
+      }
+    }
+  ],
+  "cost-allocate": [
+    {
+      "id": "example-1",
+      "label": "Two-project allocation",
+      "values": {
+        "upgradeCost": "1000000 USD",
+        "projectCapacities": "Project A: 100 MW; Project B: 50 MW",
+        "method": "proportional-capacity scenario only",
+        "iso": "Example ISO; no tariff determination"
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Three-project cluster",
+      "values": {
+        "upgradeCost": "2400000 USD",
+        "projectCapacities": "Project A: 120 MW; Project B: 60 MW; Project C: 60 MW",
+        "method": "proportional-capacity scenario only",
+        "iso": "Example RTO; verify applicable tariff separately"
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Method requires review",
+      "values": {
+        "upgradeCost": "750000 USD",
+        "projectCapacities": "Project A: 40 MW; Project B: 60 MW",
+        "method": "Applicant requests flow-impact allocation; no configured rule engine",
+        "iso": "Example utility; tariff method not supplied"
+      }
+    }
+  ],
+  "withdrawal-model": [
+    {
+      "id": "example-1",
+      "label": "Early withdrawal",
+      "values": {
+        "project": "Example Solar A",
+        "stageOfStudy": "Initial study",
+        "depositsAtRisk": "75000 USD; refundability not verified",
+        "clusterSize": "12 projects"
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Late withdrawal",
+      "values": {
+        "project": "Example Storage B",
+        "stageOfStudy": "Facilities study",
+        "depositsAtRisk": "400000 USD; contractual treatment requires review",
+        "clusterSize": "7 projects"
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Restudy sensitivity",
+      "values": {
+        "project": "Example Wind C",
+        "stageOfStudy": "Restudy after two withdrawals",
+        "depositsAtRisk": "225000 USD; allocation and exit clauses not supplied",
+        "clusterSize": "5 remaining projects"
+      }
+    }
+  ]
+}

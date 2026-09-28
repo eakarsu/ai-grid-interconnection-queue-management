@@ -1,0 +1,34 @@
+[
+  {
+    "id": "allocation",
+    "title": "Upgrade cost scenario",
+    "description": "Conserve the exact total cost across capacity-weighted allocations. This is not a tariff compliance determination.",
+    "example": {
+      "costCents": 10000,
+      "projects": [
+        {
+          "project": "Project A",
+          "capacityMw": 50
+        },
+        {
+          "project": "Project B",
+          "capacityMw": 25
+        }
+      ],
+      "method": "proportional-capacity"
+    }
+  },
+  {
+    "id": "evidence-check",
+    "title": "Evidence completeness checklist",
+    "description": "Check whether supplied requirements have supporting text. Presence does not prove truth or compliance.",
+    "example": {
+      "requirements": [
+        {
+          "requirement": "Signed source record",
+          "evidence": "Source record reference and reviewer notes"
+        }
+      ]
+    }
+  }
+]
